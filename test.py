@@ -31,34 +31,10 @@ api = tweepy.API(auth, parser=tweepy.parsers.JSONParser())
 # In[ ]:
 
 
-# Weather API
-api_key = "25bc90a1196e6f153eece0bc0b0fc9eb"
-
-# Create a function that gets the weather in London and Tweets it
-def WeatherTweet():
-    """Get Weather in London and Tweet it out."""
-    # @TODO: Construct a Query URL for the OpenWeatherMap
-    url = "http://api.openweathermap.org/data/2.5/weather?"
-    cities = ["London", "Paris", "Shanghai", "Boston", "Moscow"]
-    units = "imperial"
-    query_url = url + "appid=" + api_key + "&q=" + city + "&units=" + units
-
-    
-while(True):
-    cities = ["London", "Paris", "Shanghai", "Boston", "Moscow"]
-    units = "imperial"
-    url = "http://api.openweathermap.org/data/2.5/weather?"
-    
-    for city in cities:
-        WeatherTweet()
-        
-    # @TODO: Perform the API call to get the weather
-
-    # @TODO: Twitter credentials
-
-    # @TODO: Tweet the weather
-
-    # @TODO: Print success message
-
-# @TODO: Set timer to run every 1 hour
+# Send tweets every 60 Seconds to your homepage
+tweet_num = 1
+while tweet_num < 6:
+    api.update_status("Tweet Number :" + str(time.ctime()) + "counter: " + str(tweet_num))
+    tweet_num = tweet_num + 1
+    time.sleep(60)
 
